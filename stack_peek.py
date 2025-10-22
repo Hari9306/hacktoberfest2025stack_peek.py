@@ -1,14 +1,16 @@
 class Stack:
-    def __init__(self):
+    def _init_(self):
         self.items = []
 
     def push(self, item):
         self.items.append(item)
 
     def peek(self):
-        return self.items[0]  # ❌ Should peek at top (last element)
+        if not self.items:
+            return "Stack is empty"
+        return self.items[-1]  # ✅ Top element
 
 s = Stack()
 s.push(10)
 s.push(20)
-print(s.peek())  # Expected 20
+print(s.peek())
